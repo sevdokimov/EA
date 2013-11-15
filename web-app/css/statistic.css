@@ -1,0 +1,27 @@
+body {
+    padding: 10px 20px 0 20px;
+}
+
+#statMenu {
+    float: left;
+    padding-bottom: 20px;
+}
+
+#statMenu div {
+    margin: 5px;
+}
+
+#statBody {
+    padding: 10px;
+}
+
+#chartParametersDiv {
+    float: left;
+    padding: 10px 0 10px 30px;
+}
+
+.paramPanel {
+    border-radius: 10px;
+    background-color: #eee;
+    padding: 15px;
+}

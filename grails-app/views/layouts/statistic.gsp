@@ -11,13 +11,40 @@
   <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
   <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
   <link rel="stylesheet" href="${resource(dir: 'css', file: 'statistic.css')}" type="text/css">
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
   <g:layoutHead/>
   <r:layoutResources/>
 </head>
 
 <body>
 
-<g:layoutBody/>
+<div id="statMenu">
+  <div>
+    <g:link controller="statistic" action="byOs">Reports by OS</g:link>
+  </div>
+  <div>
+    <g:link controller="statistic" action="byReportCount">Reports by days</g:link>
+  </div>
+</div>
+
+<div id="chartParametersDiv">
+  <div class="paramPanel">
+    <g:pageProperty name="page.chartParameters"/>
+  </div>
+</div>
+
+<div style="clear: both"></div>
+
+<div id="statBody">
+  <g:layoutBody/>
+
+  <div id="chart_div">
+
+  </div>
+
+</div>
 
 <g:javascript library="application"/>
 <r:layoutResources/>
