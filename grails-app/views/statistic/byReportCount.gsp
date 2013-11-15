@@ -15,8 +15,9 @@
     <label for="since">Since:</label> <input type="text" name="since" id="since" size="9" value="${sinceDate}" />
 
     <label for="until">Until:</label> <input type="text" name="until" id="until" size="9" value="${untilDate}" />
-
-    %{--<g:select name="project" from="${Product.getAll()}" optionKey="id" optionValue="name" />--}%
+    <div style="padding: 10px 0">
+      <g:select name="productId" from="${Product.listOrderByName()}" noSelection="['': 'All products']" value="${productId}" optionKey="id" optionValue="name" />
+    </div>
 
     <div style="text-align: right; padding-top: 20px">
       <g:submitButton name="Show"/>

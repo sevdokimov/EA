@@ -1,6 +1,5 @@
 package com.jetbrains.eaViewer
 
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 /**
@@ -27,7 +26,7 @@ group by r.os
     [data: map]
   }
 
-  def byReportCount(String since, String until) {
+  def byReportCount(String since, String until, Integer productId) {
     def format = new SimpleDateFormat("yyyy-MM-dd")
 
     long sinceLong
@@ -56,12 +55,21 @@ group by r.os
 //from (select r.timeAdded from ea_report r where r.timeAdded >= ? and r.timeAdded < ?)
 //""")
 
+    def args = [sinceLong:sinceLong, untilLong: untilLong]
+
+    String productStatement = ""
+    if (productId) {
+      productStatement =  "and r.product = :product"
+      args.put("product", Product.load(productId))
+    }
+
     def data = EaReport.executeQuery("""
 select ceil(r.timeAdded / (24*60*60*1000)), count(r)
 from EaReport r
 where r.timeAdded >= :sinceLong and r.timeAdded < :untilLong
+      ${productStatement}
 group by ceil(r.timeAdded / (24*60*60*1000))
-""", [sinceLong:sinceLong, untilLong: untilLong])
+""", args)
 
     List<ReportsInfo> reportData = []
 
@@ -83,7 +91,7 @@ group by ceil(r.timeAdded / (24*60*60*1000))
       reportData << r;
     }
 
-    [data: reportData, sinceDate: format.format(new Date(sinceLong)), untilDate: format.format(new Date(untilLong))]
+    [data: reportData, sinceDate: format.format(new Date(sinceLong)), untilDate: format.format(new Date(untilLong)), productId: productId]
   }
 
 }

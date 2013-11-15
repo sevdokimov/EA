@@ -2,12 +2,12 @@ package com.jetbrains.eaViewer
 
 class Product {
 
-  Long id
+  Integer id
 
   String name
 
   static mapping = {
-    table("projects")
+    table("products")
     version(false)
     cache(true)
     id(type: 'int')
