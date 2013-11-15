@@ -1,6 +1,7 @@
 package com.jetbrains.eaViewer
 
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 
 /**
  * @author Sergey Evdokimov
@@ -27,7 +28,7 @@ group by r.os
   }
 
   def byReportCount(String since, String until) {
-    def format = DateFormat.getDateInstance(DateFormat.MEDIUM)
+    def format = new SimpleDateFormat("yyyy-MM-dd")
 
     long sinceLong
     long untilLong
@@ -43,7 +44,7 @@ group by r.os
       sinceLong = untilLong - 20*24*60*60*1000
     }
     else {
-      sinceLong = format.parse(until).time
+      sinceLong = format.parse(since).time
 
       if (sinceLong >= untilLong) {
         sinceLong = untilLong - 20*24*60*60*1000
@@ -82,7 +83,7 @@ group by ceil(r.timeAdded / (24*60*60*1000))
       reportData << r;
     }
 
-    [data: reportData, since: new Date(sinceLong), until: new Date(untilLong)]
+    [data: reportData, sinceDate: format.format(new Date(sinceLong)), untilDate: format.format(new Date(untilLong))]
   }
 
 }

@@ -1,12 +1,33 @@
+<%@ page import="com.jetbrains.eaViewer.Product" %>
+
+%{--<g:pageProperty name="chartParameters">--}%
+  %{--<r:require module="${'jquery-ui'}" />--}%
+
+  %{--<g:form class="parametersForm" method="GET" name="chartParameters">--}%
+  %{-- <g:datePicker name="since" relativeYears="${-4..0}" precision="day" value="${since}"/>--}%
+
+    %{--<label for="since">Since:</label> <input type="text" name="since" id="since" size="9" value="${sinceDate}" />--}%
+
+  %{-- <g:datePicker name="until" relativeYears="${-4..0}" precision="day" value="${until}"/>--}%
+    %{--<label for="until">Until:</label> <input type="text" name="until" id="until" size="9" value="${untilDate}" />--}%
+
+    %{--<br>--}%
+
+    %{--<g:select name="project" from="${Product.getAll()}" optionKey="id" optionValue="name" />--}%
+
+    %{--<g:submitButton name="Show"/>--}%
+  %{--</g:form>--}%
+%{--</g:pageProperty>--}%
+
 <tmpl:chart>
-
-  <g:form class="parametersForm" name="chartParameters">
-    <g:datePicker name="since" value="${since}"/>
-    <br>
-    <g:datePicker name="until" value="${until}"/>
-  </g:form>
-
   <script type="text/javascript">
+    $('#since').datepicker({
+      dateFormat: "yy-mm-dd"
+    })
+    $('#until').datepicker({
+      dateFormat: "yy-mm-dd"
+    })
+
     google.load("visualization", "1", {packages:["corechart"]});
     google.setOnLoadCallback(drawChart);
     function drawChart() {

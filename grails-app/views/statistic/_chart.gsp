@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-  <meta name="layout" content="main"/>
+  <meta name="layout" content="statistic"/>
 
   <title>EA statistic</title>
 
@@ -11,6 +11,8 @@
 <body>
 
 <tmpl:menu />
+
+<div style="clear: both"></div>
 
 <div id="statBody">
   ${raw(body())}

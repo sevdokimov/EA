@@ -17,6 +17,8 @@ class EaReport {
 
   TrackerOs os
 
+  Product product
+
   static mapping = {
     version(false)
     cache(true)
