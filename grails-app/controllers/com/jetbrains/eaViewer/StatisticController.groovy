@@ -116,6 +116,21 @@ order by ccc desc
 
     [data: map]
   }
+
+  def byProducts() {
+    def data = EaReport.executeQuery("""
+select r.product, count(r)
+from EaReport r
+group by r.product
+""")
+
+    Map<Product, Number> map = [:]
+    for (Object[] d : data) {
+      map.put(d[0], d[1])
+    }
+
+    [data: map]
+  }
 }
 
 class ReportsInfo {

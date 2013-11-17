@@ -30,6 +30,9 @@
   <div>
     <g:link controller="statistic" action="byOs">Reports by OS</g:link>
   </div>
+  <div>
+    <g:link controller="statistic" action="byProducts">Reports by products</g:link>
+  </div>
 </div>
 
 <g:ifPageProperty name="page.chartParameters">
