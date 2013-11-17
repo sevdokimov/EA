@@ -9,6 +9,10 @@ class EaIssue {
 
   String name
 
+  Integer assignee
+
+  boolean status
+
   static mapping = {
     table("ea_problems")
     version(false)
@@ -17,4 +21,7 @@ class EaIssue {
   }
 
 
+  static constraints = {
+    assignee(nullable: true)
+  }
 }

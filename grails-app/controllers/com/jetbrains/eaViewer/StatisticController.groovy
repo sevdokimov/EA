@@ -131,6 +131,37 @@ group by r.product
 
     [data: map]
   }
+
+  def issueProducers(String state) {
+    String statusCondition = ""
+    if (state == "open") {
+      statusCondition = "and i.status = 1"
+    }
+    else if (state == "closed") {
+      statusCondition = "and i.status = 0"
+    }
+
+    def data = EaReport.executeQuery("""
+select i.assignee, count(i) as ccc
+from EaIssue i
+where i.assignee > 0
+ ${statusCondition}
+group by i.assignee
+order by ccc desc
+""", [max: 30])
+    // 73189 - ID of Exception Analizer account
+
+    Map<String, Number> map = new LinkedHashMap<>()
+    for (Object[] array : data ) {
+      Integer userId = array[0]
+
+      String userName = User.get(userId)?.name ?: userId
+
+      map.put(userName, array[1])
+    }
+
+    [data: map, state: state]
+  }
 }
 
 class ReportsInfo {
