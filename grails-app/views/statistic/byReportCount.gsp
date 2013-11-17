@@ -45,14 +45,18 @@
     var options = {
       title: 'Reports',
       legend: 'none',
-      pointSize: 5
-      //chartArea: {left:60,top:30,width:"90%",height:"75%"}
+      pointSize: 5,
+      chartArea: {left:60,top:30,width:"90%",height:"75%"}
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
     chart.draw(data, options);
   }
 </script>
+
+<div id="chart_div" style="height: 300px">
+
+</div>
 
 </body>
 

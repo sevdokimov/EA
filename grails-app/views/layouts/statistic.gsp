@@ -29,20 +29,18 @@
   </div>
 </div>
 
-<div id="chartParametersDiv">
-  <div class="paramPanel">
-    <g:pageProperty name="page.chartParameters"/>
+<g:ifPageProperty name="page.chartParameters">
+  <div id="chartParametersDiv">
+    <div class="paramPanel">
+      <g:pageProperty name="page.chartParameters"/>
+    </div>
   </div>
-</div>
+</g:ifPageProperty>
 
 <div style="clear: both"></div>
 
 <div id="statBody">
   <g:layoutBody/>
-
-  <div id="chart_div">
-
-  </div>
 
 </div>
 

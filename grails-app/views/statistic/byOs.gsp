@@ -22,6 +22,11 @@
     chart.draw(data, options);
   }
 </script>
+
+<div id="chart_div" style="height: 400px">
+
+</div>
+
 </body>
 
 </html>
