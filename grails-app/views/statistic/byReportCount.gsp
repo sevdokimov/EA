@@ -11,7 +11,7 @@
 <content tag="chartParameters">
   <r:require module="${'jquery-ui'}" />
 
-  <g:form class="parametersForm" method="GET" name="chartParameters">
+  <g:form class="parametersForm" method="GET" name="chartParameters" action="byReportCount">
     <label for="since">Since:</label> <input type="text" name="since" id="since" size="9" value="${sinceDate}" />
 
     <label for="until">Until:</label> <input type="text" name="until" id="until" size="9" value="${untilDate}" />
