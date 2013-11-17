@@ -19,6 +19,8 @@ class EaReport {
 
   Product product
 
+  Integer linkerId
+
   static mapping = {
     version(false)
     cache(true)
@@ -31,5 +33,6 @@ class EaReport {
 
   static constraints = {
     attachmentNames(nullable: true)
+    linkerId(nullable: true)
   }
 }

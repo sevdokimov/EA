@@ -94,6 +94,28 @@ group by ceil(r.timeAdded / (24*60*60*1000))
     [data: reportData, sinceDate: format.format(new Date(sinceLong)), untilDate: format.format(new Date(untilLong)), productId: productId]
   }
 
+  def bestLinker() {
+    def data = EaReport.executeQuery("""
+select r.linkerId, count(r) as ccc
+from EaReport r
+where r.linkerId > 0
+  and r.linkerId <> 73189
+group by r.linkerId
+order by ccc desc
+""", [max: 30])
+    // 73189 - ID of Exception Analizer account
+
+    Map<String, Number> map = new LinkedHashMap<>()
+    for (Object[] array : data ) {
+      Integer linkerId = array[0]
+
+      String userName = User.get(linkerId)?.name ?: linkerId
+
+      map.put(userName, array[1])
+    }
+
+    [data: map]
+  }
 }
 
 class ReportsInfo {
