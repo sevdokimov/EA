@@ -5,20 +5,20 @@
 
 <body>
 
-<content tag="chartParameters">
-  <g:form class="parametersForm" method="GET" name="chartParameters" action="issueProducers">
-    <g:radioGroup values="['all', 'open', 'closed']"
-                  labels="['All', 'Open issue', 'Closed issue']"
-                  name="state" value="${state ?: 'all'}">
-      <p><label>${it.radio} ${it.label}</label></p>
-    </g:radioGroup>
+%{--<content tag="chartParameters">--}%
+  %{--<g:form class="parametersForm" method="GET" name="chartParameters" action="issueProducers">--}%
+    %{--<g:radioGroup values="['all', 'open', 'closed']"--}%
+                  %{--labels="['All', 'Open issue', 'Closed issue']"--}%
+                  %{--name="state" value="${state ?: 'all'}">--}%
+      %{--<p><label>${it.radio} ${it.label}</label></p>--}%
+    %{--</g:radioGroup>--}%
 
-    <div style="text-align: right; padding-top: 20px">
-      <g:submitButton name="Show"/>
-    </div>
+    %{--<div style="text-align: right; padding-top: 20px">--}%
+      %{--<g:submitButton name="Show"/>--}%
+    %{--</div>--}%
 
-  </g:form>
-</content>
+  %{--</g:form>--}%
+%{--</content>--}%
 
 <script type="text/javascript">
   google.load("visualization", "1", {packages:["corechart"]});
