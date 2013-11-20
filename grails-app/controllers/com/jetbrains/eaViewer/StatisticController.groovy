@@ -162,6 +162,40 @@ order by ccc desc
 
     [data: map, state: state]
   }
+
+  def bestReporters(String reportType) {
+    String condition
+
+    if (reportType == 'assigned') {
+      condition = "and r.suggestedAssignee > 0"
+    }
+    else {
+      reportType = 'all'
+      condition = ""
+    }
+
+    def data = EaReport.executeQuery("""
+select r.reporter, count(r) as ccc
+from EaReport r
+where r.reporter > 0
+  and r.reporter <> 40376
+  ${condition}
+group by r.reporter
+order by ccc desc
+""", [max: 30])
+    // 73189 - ID of Exception Analizer account
+
+    Map<String, Pair<Number, Number>> map = new LinkedHashMap<>()
+    for (Object[] array : data ) {
+      Integer userId = array[0]
+
+      String userName = User.get(userId)?.name ?: userId
+
+      map.put(userName, array[1])
+    }
+
+    [data: map, reportType: reportType]
+  }
 }
 
 class ReportsInfo {

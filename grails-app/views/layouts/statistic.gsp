@@ -28,6 +28,12 @@
     <g:link controller="statistic" action="bestLinker">Best linkers</g:link>
   </div>
   <div>
+    <g:link controller="statistic" action="bestReporters">Best reporters</g:link>
+  </div>
+  <div>
+    <g:link controller="statistic" action="issueProducers">Best exception producers</g:link>
+  </div>
+  <div>
     <g:link controller="statistic" action="byOs">Reports by OS</g:link>
   </div>
   <div>

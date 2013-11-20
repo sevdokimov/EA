@@ -21,6 +21,12 @@ class EaReport {
 
   Integer linkerId
 
+  Integer suggestedAssignee
+
+  String comments
+
+  Integer reporter
+
   static mapping = {
     version(false)
     cache(true)
@@ -29,6 +35,8 @@ class EaReport {
     branchNumber(type: 'int')
     os(column: 'os')
     timeAdded(column: 'TIME_ADDED')
+    reporter(column: 'WHO_ADDED')
+    comments(type: 'text')
   }
 
   static constraints = {
