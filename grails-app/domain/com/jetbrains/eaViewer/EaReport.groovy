@@ -27,6 +27,8 @@ class EaReport {
 
   Integer reporter
 
+  EaIssue issue
+
   static mapping = {
     version(false)
     cache(true)
@@ -37,6 +39,7 @@ class EaReport {
     timeAdded(column: 'TIME_ADDED')
     reporter(column: 'WHO_ADDED')
     comments(type: 'text')
+    issue(column: 'PROBLEM_ID')
   }
 
   static constraints = {
