@@ -22,7 +22,7 @@
 
 <div id="statMenu">
   <div>
-    <g:link controller="statistic" action="byReportCount">Reports count</g:link>
+    <g:link controller="statistic" action="byReportCount">New reports</g:link>
   </div>
   <div>
     <g:link controller="statistic" action="bestLinker">Best linkers</g:link>
