@@ -183,7 +183,6 @@ where r.reporter > 0
 group by r.reporter
 order by ccc desc
 """, [max: 30])
-    // 73189 - ID of Exception Analizer account
 
     Map<String, Pair<Number, Number>> map = new LinkedHashMap<>()
     for (Object[] array : data ) {
@@ -194,7 +193,10 @@ order by ccc desc
       map.put(userName, array[1])
     }
 
-    [data: map, reportType: reportType]
+    long anonymousReports = EaReport.countByReporter(40376)
+    int allReports = EaReport.count()
+
+    [data: map, reportType: reportType, anonymousReports: anonymousReports, allReports: allReports]
   }
 }
 

@@ -44,6 +44,8 @@
   }
 </script>
 
+Anonymous reports: ${anonymousReports} (${(int)(anonymousReports/(double)allReports * 100) }%)
+
 <div id="chart_div" style="height: 900px">
 
 </div>
