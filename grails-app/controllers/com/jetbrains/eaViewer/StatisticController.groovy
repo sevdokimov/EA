@@ -283,6 +283,45 @@ order by ccc desc
 
     [data: map, reportType: reportType, anonymousReports: anonymousReports, allReports: allReports]
   }
+
+  def byType() {
+    def prefixMap = [
+            "assert": "AssertionError",
+            "NPE": "NullPointerException",
+            "IAE": "IllegalArgumentException",
+            "SOE": "StackOverflowError",
+            "PIEAE": "PsiInvalidElementAccessException",
+            "CCE": "ClassCastException",
+            "ISE": "IllegalStateException",
+            "IOOBE": "IndexOutOfBoundsException",
+            "IOE": "IOException",
+            "AIOOBE": "ArrayIndexOutOfBoundsException",
+            "SIOOBE": "StringIndexOutOfBoundsException",
+
+            "CNFE": "ClassNotFoundException",
+            "EOFE": "EOFException",
+            "INRE": "IndexNotReadyException",
+            "E": "java.lang.Exception",
+            "NCDFE": "NoClassDefFoundError",
+            "NSME": "NoSuchMethodError",
+            "Throwable": "Throwable",
+    ]
+
+    List<Pair<String, Integer>> data = []
+
+    for (def e : prefixMap) {
+      String prefix = e.key
+
+      int count = EaIssue.countByNameLike(prefix + ":%")
+
+      data << new Pair(e.value, count)
+    }
+
+    data.sort({ -it.second })
+
+    [data: data]
+  }
+
 }
 
 class ReportsInfo {

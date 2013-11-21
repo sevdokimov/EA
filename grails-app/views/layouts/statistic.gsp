@@ -25,6 +25,9 @@
     <g:link controller="statistic" action="byReportCount">New reports</g:link>
   </div>
   <div>
+    <g:link controller="statistic" action="byType">Exception types</g:link>
+  </div>
+  <div>
     <g:link controller="statistic" action="bestLinker">Best linkers</g:link>
   </div>
   <div>
