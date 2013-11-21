@@ -10,7 +10,7 @@
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
                                                        ['OS', 'Reports'],
-                                                       ${raw(data.entrySet().collect({ "['${it.key.value}', ${it.value}]" }).join(','))}
+                                                       ${raw(data.entrySet().collect({ "['${it.key}', ${it.value}]" }).join(','))}
                                                      ]);
 
     var options = {

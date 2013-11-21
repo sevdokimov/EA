@@ -13,14 +13,18 @@ class StatisticController {
 
   def byOs() {
     def data = EaReport.executeQuery("""
-select r.os, count(r)
+select r.osName, count(r) as ccc
 from EaReport r
-group by r.os
-""")
+group by r.osName
+order by ccc desc
+""", [max: 10, cache: true])
 
-    Map<TrackerOs, Number> map = [:]
+    Map<String, Number> map = [:]
     for (Object[] d : data) {
-      map.put(d[0], d[1])
+      String osName = d[0]
+      if (osName) {
+        map.put(osName, d[1])
+      }
     }
 
     [data: map]

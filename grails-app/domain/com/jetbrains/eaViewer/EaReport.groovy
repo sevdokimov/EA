@@ -17,6 +17,8 @@ class EaReport {
 
   TrackerOs os
 
+  String osName
+
   Product product
 
   Integer linkerId
