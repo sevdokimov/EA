@@ -13,11 +13,16 @@ class EaIssue {
 
   boolean status
 
+  long fixBranch
+  long fixBuild
+
   static mapping = {
     table("ea_problems")
     version(false)
     cache(true)
     id(type: 'int')
+    fixBranch(type: 'int')
+    fixBuild(type: 'int')
   }
 
 
