@@ -71,5 +71,7 @@ grails.project.dependency.resolution = {
 
         compile ":jquery-ui:1.10.3"
         compile ':jquery-date-time-picker:0.1.0'
+
+        compile ":quartz:1.0.1"
     }
 }

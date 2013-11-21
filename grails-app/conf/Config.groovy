@@ -40,6 +40,9 @@ grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
 
+// enable query caching by default
+grails.hibernate.cache.queries = true
+
 // The default scope for controllers. May be prototype, session or singleton.
 // If unspecified, controllers are prototype scoped.
 grails.controllers.defaultScope = 'singleton'
