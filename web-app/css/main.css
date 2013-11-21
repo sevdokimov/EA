@@ -16,12 +16,12 @@ html {
 
 html * {
 	margin: 0;
+    padding: 0;
 }
 
 body {
 	color: #333333;
-	margin: 0 auto;
-	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
+    padding: 0 20px;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -54,10 +54,6 @@ h1 {
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
-}
-
-ul {
-	padding: 0;
 }
 
 img {
@@ -458,4 +454,10 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+
+/*---=== Custom styles ===---*/
+#header a {
+    margin-left: 30px;
 }
