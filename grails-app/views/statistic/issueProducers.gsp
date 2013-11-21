@@ -30,7 +30,7 @@
                                                      ]);
 
     var options = {
-      title: 'Best exception producer',
+      title: 'Best exception producers',
       legend: 'none',
       chartArea: {left:300,top:30,width:"90%",height:"90%"}
     };

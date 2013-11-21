@@ -39,7 +39,7 @@
   function drawChart() {
     var data = new google.visualization.DataTable();
     data.addColumn('date')
-    data.addColumn('number', "Reports")
+    data.addColumn('number', "New issues")
     data.addRows([${data.collect { "[new Date(${it.year}, ${it.month}, ${it.day - 1}), ${it.count}]" }.join(',') }])
 
     var options = {
