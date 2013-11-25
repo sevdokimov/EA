@@ -38,8 +38,6 @@ environments {
     }
     production {
       dataSource {
-        logSql = true
-
         url = "jdbc:mysql://app4.labs.intellij.net:3306/eadb"
         username = "ea-ro"
         password = "neHeelvOukGoas"
