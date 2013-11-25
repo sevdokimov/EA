@@ -16,8 +16,6 @@ class DropCacheJob {
     sessionFactory.getCache().evictEntityRegions()
     sessionFactory.getCache().evictCollectionRegions()
     sessionFactory.getCache().evictDefaultQueryRegion()
-
-    downloadCountService.doUpdateDb()
   }
 
 }
